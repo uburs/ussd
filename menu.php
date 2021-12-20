@@ -61,7 +61,7 @@
                 echo "CON Please Enter your PIN:";
             }
             else if($level == 4){
-                $response = "CON Send " . $textArray[2]. "to" . $textArray[1]. "\n";
+                $response = "CON Send " . $textArray[2]. " to " . $textArray[1]. "\n";
                 $response .= "1. Confirm\n";
                 $response .= "2. Cancel\n";
                 $response .= Util::$GO_BACK . " Back\n";
@@ -113,7 +113,16 @@
         }
 
         public function checkBalanceMenu($textArray){
-            
+            $level = count($textArray);
+            if($level == 1){
+                echo "CON Enter PIN";
+            }else if($level == 2){
+                //logic
+                //check PIN correctness etc
+                echo "END Your request is being processed; you will receive SMS shortly";
+            }else {
+                echo "END Invalid entry";
+            }
         }
     }
 
