@@ -85,7 +85,36 @@
         }
 
         public function widthrawMoneyMenu($textArray){
-
+            $level = count($textArray);
+            if($level == 1){
+                echo "CON Enter anent number:";
+            }else if($level == 2){
+                echo "CON Enter amount:";
+            }else if($level == 3){
+                echo "CON Please Enter your PIN:";
+            }
+            else if($level == 4){
+                $response = "CON Widthraw " . $textArray[2]. " " . $textArray[2]. "\n";
+                $response .= "1. Confirm\n";
+                $response .= "2. Cancel\n";
+                $response .= Util::$GO_BACK . " Back\n";
+                $response .= Util::$GO_TO_MAIN_MENU . " Main menu\n"; 
+                echo $response;
+            }
+            else if($level == 5 && $textArray[4] == 1){
+                //a confirm
+                //Send the money plus process
+                //Check if pin is correct
+                echo "END Your request is being processed";
+            }else if($level == 5 && $textArray[4] == 2){
+                echo "END Thank you for using our service";
+            }else if($level == 5 && $textArray[4] == Util::$GO_BACK ){
+                echo "END You requested back to one step - PIN";
+            }else if($level == 5 && $textArray[4] == Util::$GO_TO_MAIN_MENU ){
+                echo "END You requested back to main menu";
+            }else{
+                echo "END Invalid entry";
+            }
         }
 
         public function checkBalanceMenu($textArray){
