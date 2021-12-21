@@ -71,8 +71,10 @@
                 //a confirm
                 //Send the money plus process
                 //Check if pin is correct
+                //If you have enough funds including charges etc ...
                 echo "END Your request is being processed";
             }else if($level == 5 && $textArray[4] == 2){
+                //Cancel
                 echo "END Thank you for using our service";
             }else if($level == 5 && $textArray[4] == Util::$GO_BACK ){
                 echo "END You requested back to one step - PIN";
@@ -134,7 +136,7 @@
             $explodedText = explode("*", $text);
             while(array_search(Util::$GO_BACK, $explodedText) != false){
                 $firstIndex = array_search(Util::$GO_BACK, $explodedText);
-                array_slice($explodedText, $firstIndex-1, 2);
+                $explodedText = array_slice($explodedText, $firstIndex-1, 2);
             }
                 return join("*", $explodedText);
         }
