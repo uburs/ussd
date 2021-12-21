@@ -136,7 +136,7 @@
             $explodedText = explode("*", $text);
             while(array_search(Util::$GO_BACK, $explodedText) != false){
                 $firstIndex = array_search(Util::$GO_BACK, $explodedText);
-                $explodedText = array_slice($explodedText, $firstIndex-1, 2);
+                array_slice($explodedText, $firstIndex - 1);
             }
                 return join("*", $explodedText);
         }
