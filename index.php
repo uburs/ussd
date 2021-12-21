@@ -9,7 +9,7 @@
     $phoneNumber = $_POST["phoneNumber"];
     $text        = $_POST["text"];
 
-    $isRegistered = true;
+    $isRegistered = false;
     $menu = new Menu();
     $text = $menu->middleware($text);
     
