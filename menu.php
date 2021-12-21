@@ -133,8 +133,8 @@
             //1*4*5*1*98*2*1234*
             $explodedText = explode("*", $text);
             while(array_search(util::$GO_BACK, $explodeText) != false){
-                $firstIndex = array_search(util::$GO_BACK, $explodeText != false);
-                $explodedText = array_slice($explodedText, $firstIndex - 1, 2);
+                $firstIndex = array_search(util::$GO_BACK, $explodeText);
+                array_slice($explodedText, $firstIndex - 1, 2);
             }
                 return join("*", $explodedText);
         }
@@ -143,7 +143,7 @@
             //1*4*5*1*99*2*1234*99
             $explodedText = explode("*", $text);
             while(array_search(util::$GO_TO_MAIN_MENU, $explodeText) != false){
-                $firstIndex = array_search(util::$GO_TO_MAIN_MENU, $explodeText != false);
+                $firstIndex = array_search(util::$GO_TO_MAIN_MENU, $explodeText);
                 $explodedText = array_slice($explodedText, $firstIndex + 1);
             }
                 return join("*", $explodedText);
