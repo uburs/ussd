@@ -95,11 +95,7 @@
                 echo "CON Please Enter your PIN:";
             }
             else if($level == 4){
-                $response = "CON Widthraw " . $textArray[2] . " from agent " . $textArray[1] ."\n";
-                $response .= "1. Confirm\n";
-                $response .= "2. Cancel\n";
-            
-                echo $response;
+                $response = "CON Widthraw " . $textArray[2] . " from agent " . $textArray[1] ."\n 1. Confirm\n 2. Cancel\n";
             }
             else if($level == 5 && $textArray[4] == 1){
                 //a confirm
@@ -136,7 +132,7 @@
             $explodedText = explode("*", $text);
             while(array_search(Util::$GO_BACK, $explodedText) != false){
                 $firstIndex = array_search(Util::$GO_BACK, $explodedText);
-                $explodedText = array_slice($explodedText, $firstIndex-1, 2);
+                array_slice($explodedText, $firstIndex-1, 2);
             }
                 return join("*", $explodedText);
         }
