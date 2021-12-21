@@ -132,9 +132,9 @@
         public function goBack($text){
             //1*4*5*1*98*2*1234*
             $explodedText = explode("*", $text);
-            while(array_search(util::$GO_BACK, $explodedText) != false){
-                $firstIndex = array_search(util::$GO_BACK, $explodedText);
-                array_slice($explodedText, $firstIndex - 1, 2);
+            while(array_search(Util::$GO_BACK, $explodedText) != false){
+                $firstIndex = array_search(Util::$GO_BACK, $explodedText);
+                array_slice($explodedText, $firstIndex-1, 2);
             }
                 return join("*", $explodedText);
         }
@@ -142,8 +142,8 @@
         public function goToMainMenu($text){
             //1*4*5*1*99*2*1234*99
             $explodedText = explode("*", $text);
-            while(array_search(util::$GO_TO_MAIN_MENU, $explodedText) != false){
-                $firstIndex = array_search(util::$GO_TO_MAIN_MENU, $explodedText);
+            while(array_search(Util::$GO_TO_MAIN_MENU, $explodedText) != false){
+                $firstIndex = array_search(Util::$GO_TO_MAIN_MENU, $explodedText);
                 $explodedText = array_slice($explodedText, $firstIndex + 1);
             }
                 return join("*", $explodedText);
