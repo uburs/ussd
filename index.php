@@ -10,7 +10,10 @@
     $text        = $_POST["text"];
 
     $isRegistered = false;
-    $menu = new Menu($text, $sessionId);
+    $menu = new Menu();
+    $text = $menu->middleware($text);
+    
+    
 
     if($text == "" && !$isRegistered){
         //user is registered and string is empty

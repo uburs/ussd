@@ -6,11 +6,10 @@
         protected $text;
         protected $sessionId;
 
-        function _construct($text, $sessionId)
-        {
-            $this->text = $text;
-            $this->sessionId = $sessionId;
+        function _construct(){
+
         }
+       
 
         //Menu registered users will see on screen
         public function mainMenuRegistered(){
@@ -123,6 +122,32 @@
             }else {
                 echo "END Invalid entry";
             }
+        }
+
+        public function middleware($text){
+            //remove entries for going back and for going to the main menu
+            return $this->goBack($this->goToMainMenu($text));
+        }
+
+        public function goBack($text){
+            //1*4*5*1*98*2*1234*
+            $explodedText = explode("*", $text);
+            while(array_search(util::$GO_BACK, $explodeText) != false){
+                $firstIndex = array_search(util::$GO_BACK, $explodeText != false);
+                array_slice($explodedText, $firstIndex - 1, 2);
+            }
+                return join("*", $explodedText);
+        }
+
+        public function goToMainMenu($text){
+            //1*4*5*1*99*2*1234*99
+            $explodedText = explode("*", $text);
+            while(array_search(util::$GO_TO_MAIN_MENU, $explodeText) != false){
+                $firstIndex = array_search(util::$GO_TO_MAIN_MENU, $explodeText != false);
+                $explodedText = array_slice($explodedText, $firstIndex + 1);
+            }
+                return join("*", $explodedText);
+        
         }
     }
 
