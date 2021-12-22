@@ -9,16 +9,16 @@
     $phoneNumber = $_POST["phoneNumber"];
     $text        = $_POST["text"];
 
-    $isRegistered = false;
+    //$isRegistered = false;
     $menu = new Menu();
     $text = $menu->middleware($text);
     
     
 
-    if($text == "" && !$isRegistered){
+    if($text == "" && $isRegistered){
         //user is registered and string is empty
         $menu->mainMenuRegistered();
-    }else if($text == "" && $isRegistered){
+    }else if($text == "" && !$isRegistered){
         //user is unregistered and string is empty
         $menu->mainMenuUnRegistered();
 
